@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Nishi Yadav Skin & Hair Specialist | Dermatologist in Etawah</title>
+  <meta name="description" content="Dr. Nishi Yadav – MBBS, MD Dermatology. Gold Medalist Dermatologist, Cosmetologist & Trichologist in Etawah, UP. Expert in Acne, Hair Fall, Laser, PRP, Anti-Aging & more." />
+  <meta name="keywords" content="dermatologist etawah, skin clinic etawah, hair fall treatment etawah, acne treatment, Dr Nishi Yadav, PRP therapy, laser treatment, pigmentation treatment, skin specialist UP" />
+  <meta name="author" content="Dr. Nishi Yadav Skin & Hair Specialist" />
+  <meta property="og:title" content="Dr. Nishi Yadav Skin & Hair Specialist" />
+  <meta property="og:description" content="Advanced Dermatology, Hair & Aesthetic Treatments in Etawah by Gold Medalist Dr. Nishi Yadav." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="images/og-cover.jpg" />
+  <link rel="icon" href="images/favicon.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,700;1,500&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       CSS VARIABLES & RESET
+    ============================================================ */
+    :root {
+      --plum:        #4a1942;
+      --plum-dark:   #2e0f2b;
+      --plum-mid:    #6b2c63;
+      --lavender:    #c9a7d4;
+      --lavender-lt: #eedff5;
+      --pink:        #f3c6d8;
+      --pink-soft:   #fce8f0;
+      --rose-gold:   #c8826a;
+      --rose-lt:     #f0c4b8;
+      --beige:       #faf5f0;
+      --white:       #ffffff;
+      --text-dark:   #2a1228;
+      --text-mid:    #5c3d56;
+      --text-light:  #9b7a97;
+      --shadow-soft: 0 8px 40px rgba(74,25,66,0.10);
+      --shadow-card: 0 4px 24px rgba(74,25,66,0.12);
+      --shadow-hover:0 12px 48px rgba(74,25,66,0.20);
+      --radius:      18px;
+      --radius-lg:   28px;
+      --transition:  0.38s cubic-bezier(.4,0,.2,1);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--beige);
+      color: var(--text-dark);
+      overflow-x: hidden;
+      line-height: 1.7;
+    }
+
+    /* Scroll Progress Bar */
+    #scroll-progress {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: linear-gradient(90deg, var(--plum), var(--rose-gold), var(--lavender));
+      z-index: 9999; width: 0%; transition: width 0.1s linear;
+    }
+
+    /* ============================================================
+       LOADER
+    ============================================================ */
+    #loader {
+      position: fixed; inset: 0;
+      background: linear-gradient(135deg, var(--plum-dark) 0%, var(--plum) 50%, var(--plum-mid) 100%);
+      z-index: 99999;
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 28px;
+      transition: opacity 0.7s ease, visibility 0.7s ease;
+    }
+
+    #loader.hidden { opacity: 0; visibility: hidden; pointer-events: none; }
+
+    .loader-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      font-weight: 600;
+      color: var(--white);
+      letter-spacing: 0.04em;
+      text-align: center;
+      line-height: 1.3;
+    }
+    .loader-logo span {
+      display: block;
+      font-size: 0.55em;
+      color: var(--lavender);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .loader-bar-wrap {
+      width: min(280px, 70vw); height: 3px;
+      background: rgba(255,255,255,0.15); border-radius: 99px; overflow: hidden;
+    }
+    .loader-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--lavender), var(--rose-gold), var(--pink));
+      border-radius: 99px;
+      animation: loadBar 2.2s ease forwards;
+    }
+    @keyframes loadBar { from { width: 0% } to { width: 100% } }
+
+    .loader-credit {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.06em;
+    }
+    .loader-credit a {
+      color: var(--rose-lt);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .loader-credit a:hover { color: var(--pink); }
+
+    .loader-petals {
+      position: absolute; inset: 0; overflow: hidden; pointer-events: none;
+    }
+    .petal {
+      position: absolute;
+      border-radius: 50% 0 50% 0;
+      opacity: 0.07;
+      animation: floatPetal linear infinite;
+    }
+    @keyframes floatPetal {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.07; }
+      90%  { opacity: 0.07; }
+      100% { transform: translateY(-20vh) rotate(720deg); opacity: 0; }
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 0 5%;
+      height: 70px;
+      display: flex; align-items: center; justify-content: space-between;
+      transition: background var(--transition), box-shadow var(--transition);
+    }
+    #navbar.scrolled {
+      background: rgba(255,252,255,0.92);
+      backdrop-filter: blur(18px);
+      box-shadow: 0 2px 24px rgba(74,25,66,0.10);
+    }
+
+    .nav-brand {
+      display: flex; align-items: center; gap: 12px;
+      text-decoration: none;
+    }
+    .nav-brand-icon {
+      width: 42px; height: 42px;
+      background: linear-gradient(135deg, var(--plum), var(--plum-mid));
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 700;
+      color: var(--white);
+      letter-spacing: -0.02em;
+      flex-shrink: 0;
+    }
+    .nav-brand-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.05rem; font-weight: 600;
+      color: var(--plum-dark);
+      line-height: 1.25;
+    }
+    .nav-brand-text small {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.62rem; font-weight: 400;
+      color: var(--text-light);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex; align-items: center; gap: 30px;
+      list-style: none;
+    }
+    .nav-links a {
+      font-size: 0.88rem; font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      letter-spacing: 0.02em;
+      transition: color var(--transition);
+      position: relative;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: -3px; left: 0; right: 0;
+      height: 2px; background: var(--plum);
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .nav-links a:hover { color: var(--plum); }
+    .nav-links a:hover::after { transform: scaleX(1); }
+
+    .btn-nav {
+      padding: 10px 22px;
+      background: linear-gradient(135deg, var(--plum), var(--plum-mid));
+      color: var(--white) !important;
+      border-radius: 99px;
+      font-size: 0.84rem !important;
+      font-weight: 600 !important;
+      box-shadow: 0 4px 16px rgba(74,25,66,0.25);
+      transition: all var(--transition) !important;
+    }
+    .btn-nav::after { display: none !important; }
+    .btn-nav:hover {
+      transform: translateY(-1px) !important;
+      box-shadow: 0 6px 24px rgba(74,25,66,0.35) !important;
+    }
+
+    .hamburger {
+      display: none; flex-direction: column; gap: 5px;
+      cursor: pointer; padding: 4px; background: none; border: none;
+      z-index: 1100;
+    }
+    .hamburger span {
+      display: block; width: 24px; height: 2px;
+      background: var(--plum); border-radius: 2px;
+      transition: all 0.3s ease;
+    }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    .mobile-menu {
+      display: none; position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(46,15,43,0.97);
+      backdrop-filter: blur(20px);
+      z-index: 1050;
+      flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 32px;
+    }
+    .mobile-menu.open { display: flex; }
+    .mobile-menu a {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2rem; font-weight: 600;
+      color: var(--white);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+    }
+    .mobile-menu a:hover { color: var(--lavender); }
+
+    /* ============================================================
+       SECTION COMMONS
+    ============================================================ */
+    section { padding: 100px 5%; }
+
+    .section-tag {
+      display: inline-block;
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--rose-gold);
+      background: var(--pink-soft);
+      padding: 6px 18px; border-radius: 99px;
+      margin-bottom: 14px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 700; color: var(--plum-dark);
+      line-height: 1.15; margin-bottom: 16px;
+    }
+    .section-subtitle {
+      font-size: 1.02rem; color: var(--text-light);
+      max-width: 560px; line-height: 1.75;
+    }
+    .section-header { text-align: center; margin-bottom: 64px; }
+    .section-header .section-subtitle { margin: 0 auto; }
+
+    .reveal { opacity: 0; transform: translateY(42px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-left { opacity: 0; transform: translateX(-42px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-left.visible { opacity: 1; transform: none; }
+    .reveal-right { opacity: 0; transform: translateX(42px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .reveal-right.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       BUTTONS
+    ============================================================ */
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 16px 34px;
+      background: linear-gradient(135deg, var(--plum) 0%, var(--plum-mid) 100%);
+      color: var(--white);
+      border-radius: 99px; border: none;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none; cursor: pointer;
+      box-shadow: 0 6px 28px rgba(74,25,66,0.28);
+      transition: all var(--transition);
+      position: relative; overflow: hidden;
+    }
+    .btn-primary::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--plum-mid), var(--plum-dark));
+      opacity: 0; transition: opacity var(--transition);
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 36px rgba(74,25,66,0.38); }
+    .btn-primary:hover::before { opacity: 1; }
+    .btn-primary span { position: relative; z-index: 1; }
+
+    .btn-outline {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 15px 32px;
+      background: transparent;
+      color: var(--plum);
+      border: 2px solid var(--plum);
+      border-radius: 99px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.92rem; font-weight: 600;
+      letter-spacing: 0.02em;
+      text-decoration: none; cursor: pointer;
+      transition: all var(--transition);
+    }
+    .btn-outline:hover {
+      background: var(--plum); color: var(--white);
+      box-shadow: 0 6px 28px rgba(74,25,66,0.25);
+      transform: translateY(-2px);
+    }
+
+    /* ============================================================
+       HERO
+    ============================================================ */
+    #hero {
+      min-height: 100vh;
+      padding: 0;
+      position: relative;
+      display: flex; align-items: center;
+      background: linear-gradient(160deg, var(--plum-dark) 0%, var(--plum) 45%, var(--plum-mid) 100%);
+      overflow: hidden;
+    }
+
+    .hero-blobs {
+      position: absolute; inset: 0; pointer-events: none; overflow: hidden;
+    }
+    .blob {
+      position: absolute; border-radius: 50%;
+      filter: blur(80px); opacity: 0.18;
+      animation: blobFloat 8s ease-in-out infinite;
+    }
+    .blob-1 { width: 500px; height: 500px; background: var(--lavender); top: -150px; right: -100px; animation-delay: 0s; }
+    .blob-2 { width: 350px; height: 350px; background: var(--pink); bottom: -100px; left: -80px; animation-delay: 3s; }
+    .blob-3 { width: 250px; height: 250px; background: var(--rose-gold); top: 40%; right: 30%; animation-delay: 5s; }
+    @keyframes blobFloat {
+      0%, 100% { transform: scale(1) translateY(0); }
+      50%       { transform: scale(1.1) translateY(-25px); }
+    }
+
+    .hero-inner {
+      position: relative; z-index: 2;
+      width: 100%; max-width: 1260px; margin: 0 auto;
+      padding: 120px 5% 80px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 60px; align-items: center;
+    }
+
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      padding: 8px 18px; border-radius: 99px;
+      font-size: 0.78rem; color: var(--pink);
+      letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 500; margin-bottom: 22px;
+    }
+    .hero-badge::before {
+      content: ''; width: 7px; height: 7px; border-radius: 50%;
+      background: #6ef77e; box-shadow: 0 0 8px #6ef77e;
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+    @keyframes pulse-dot { 0%,100%{transform:scale(1)} 50%{transform:scale(1.5)} }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+      font-weight: 700; color: var(--white);
+      line-height: 1.08; margin-bottom: 20px;
+    }
+    .hero-title em { font-style: italic; color: var(--pink); }
+
+    .hero-sub {
+      font-size: 1.05rem; color: rgba(255,255,255,0.72);
+      max-width: 440px; line-height: 1.75; margin-bottom: 36px;
+    }
+
+    .hero-ctas { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex; gap: 32px; margin-top: 48px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .hero-stat-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem; font-weight: 700; color: var(--white);
+      line-height: 1;
+    }
+    .hero-stat-num span { color: var(--rose-lt); }
+    .hero-stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 4px; }
+
+    .hero-image-wrap {
+      position: relative; display: flex; justify-content: center; align-items: flex-end;
+    }
+    .hero-img-card {
+      position: relative; z-index: 2;
+      width: min(340px, 90%);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      overflow: hidden;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+    }
+    .hero-img-card img {
+      width: 100%; display: block;
+      transition: transform 0.5s ease;
+    }
+    .hero-img-card:hover img { transform: scale(1.04); }
+
+    .hero-img-badge {
+      position: absolute; bottom: 24px; left: 50%;
+      transform: translateX(-50%);
+      z-index: 3;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(12px);
+      padding: 12px 20px; border-radius: var(--radius);
+      text-align: center; white-space: nowrap;
+      box-shadow: var(--shadow-card);
+    }
+    .hero-img-badge strong {
+      display: block; font-family: 'Cormorant Garamond', serif;
+      font-size: 0.98rem; font-weight: 700; color: var(--plum-dark);
+    }
+    .hero-img-badge small { font-size: 0.7rem; color: var(--text-light); }
+
+    .hero-deco-ring {
+      position: absolute; border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.15);
+      pointer-events: none;
+    }
+    .ring-1 { width: 360px; height: 360px; top: -40px; right: -40px; }
+    .ring-2 { width: 260px; height: 260px; top: 30px; right: -10px; }
+
+    .hero-float-card {
+      position: absolute; z-index: 4;
+      background: rgba(255,255,255,0.92);
+      backdrop-filter: blur(14px);
+      border-radius: var(--radius);
+      padding: 13px 16px;
+      box-shadow: var(--shadow-hover);
+      animation: floatUpDown 4s ease-in-out infinite;
+    }
+    .hero-float-card .icon-wrap {
+      width: 34px; height: 34px; border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.2rem; margin-bottom: 5px;
+    }
+    .hero-float-card p { font-size: 0.75rem; color: var(--text-mid); font-weight: 500; }
+    .hero-float-card strong { font-size: 0.92rem; color: var(--plum-dark); }
+    .float-card-tl { top: 60px; left: -30px; animation-delay: 0s; }
+    .float-card-br { bottom: 80px; right: -24px; animation-delay: 2s; }
+
+    @keyframes floatUpDown {
+      0%,100%{ transform: translateY(0px); }
+      50%    { transform: translateY(-12px); }
+    }
+
+    /* ============================================================
+       ABOUT
+    ============================================================ */
+    #about {
+      background: var(--white);
+    }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 72px; align-items: center;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .about-img-stack {
+      position: relative; padding: 30px 30px 0 0;
+    }
+    .about-img-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-hover);
+      position: relative; z-index: 2;
+    }
+    .about-img-main img {
+      width: 100%; display: block;
+      transition: transform 0.5s ease;
+    }
+    .about-img-main:hover img { transform: scale(1.04); }
+
+    .about-img-deco {
+      position: absolute; bottom: -20px; right: -20px;
+      width: 55%; border-radius: var(--radius);
+      overflow: hidden; z-index: 3;
+      box-shadow: var(--shadow-hover);
+    }
+    .about-img-deco img { width: 100%; display: block; }
+
+    .about-bg-shape {
+      position: absolute; top: 0; left: 0;
+      width: 85%; height: 85%;
+      background: linear-gradient(135deg, var(--lavender-lt), var(--pink-soft));
+      border-radius: var(--radius-lg);
+      z-index: 1;
+    }
+
+    .about-content { }
+    .about-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.55rem; font-style: italic;
+      color: var(--plum); line-height: 1.5;
+      border-left: 3px solid var(--rose-gold);
+      padding-left: 20px; margin: 24px 0 28px;
+    }
+
+    .about-text { color: var(--text-mid); margin-bottom: 20px; font-size: 0.97rem; }
+
+    .about-certs {
+      display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 32px;
+    }
+    .cert-pill {
+      padding: 7px 16px;
+      background: var(--lavender-lt);
+      color: var(--plum);
+      border-radius: 99px; font-size: 0.8rem; font-weight: 500;
+    }
+
+    /* ============================================================
+       SERVICES
+    ============================================================ */
+    #services { background: var(--beige); }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 22px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 30px 24px;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+      cursor: default;
+      position: relative; overflow: hidden;
+    }
+    .service-card::before {
+      content: ''; position: absolute;
+      top: 0; left: 0; right: 0; height: 3px;
+      background: linear-gradient(90deg, var(--plum), var(--lavender));
+      transform: scaleX(0); transform-origin: left;
+      transition: transform var(--transition);
+    }
+    .service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-hover); }
+    .service-card:hover::before { transform: scaleX(1); }
+
+    .service-icon {
+      width: 52px; height: 52px;
+      background: linear-gradient(135deg, var(--lavender-lt), var(--pink-soft));
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.5rem; margin-bottom: 16px;
+      transition: all var(--transition);
+    }
+    .service-card:hover .service-icon {
+      background: linear-gradient(135deg, var(--plum), var(--plum-mid));
+    }
+
+    .service-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem; font-weight: 700;
+      color: var(--plum-dark); margin-bottom: 8px;
+    }
+    .service-desc { font-size: 0.83rem; color: var(--text-light); line-height: 1.6; }
+
+    /* ============================================================
+       BEFORE / AFTER
+    ============================================================ */
+    #results { background: var(--white); }
+
+    .results-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 28px; max-width: 1200px; margin: 0 auto;
+    }
+    .result-card {
+      border-radius: var(--radius); overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+    }
+    .result-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+    .result-imgs {
+      display: grid; grid-template-columns: 1fr 1fr;
+    }
+    .result-img-wrap { position: relative; overflow: hidden; }
+    .result-img-wrap img { width: 100%; height: 190px; object-fit: cover; display: block; transition: transform 0.5s ease; }
+    .result-card:hover .result-img-wrap img { transform: scale(1.06); }
+    .result-label {
+      position: absolute; bottom: 8px; left: 8px;
+      background: rgba(0,0,0,0.6); color: var(--white);
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 99px;
+    }
+    .result-info {
+      padding: 18px; background: var(--white);
+    }
+    .result-info h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.05rem; font-weight: 700; color: var(--plum-dark); margin-bottom: 4px; }
+    .result-info p { font-size: 0.8rem; color: var(--text-light); }
+
+    /* ============================================================
+       WHY CHOOSE US
+    ============================================================ */
+    #why {
+      background: linear-gradient(160deg, var(--plum-dark) 0%, var(--plum) 60%, var(--plum-mid) 100%);
+      color: var(--white);
+    }
+    #why .section-title { color: var(--white); }
+    #why .section-subtitle { color: rgba(255,255,255,0.65); }
+    #why .section-tag { background: rgba(255,255,255,0.12); color: var(--pink); border: 1px solid rgba(255,255,255,0.15); }
+
+    .why-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .why-card {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.12);
+      backdrop-filter: blur(12px);
+      border-radius: var(--radius);
+      padding: 30px 24px;
+      transition: all var(--transition);
+    }
+    .why-card:hover {
+      background: rgba(255,255,255,0.13);
+      transform: translateY(-5px);
+      border-color: rgba(255,255,255,0.22);
+    }
+    .why-icon {
+      font-size: 2rem; margin-bottom: 16px;
+    }
+    .why-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem; font-weight: 700; color: var(--white); margin-bottom: 10px;
+    }
+    .why-card p { font-size: 0.86rem; color: rgba(255,255,255,0.62); line-height: 1.65; }
+
+    /* ============================================================
+       COUNTERS
+    ============================================================ */
+    .counters-wrap {
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      gap: 0; max-width: 1200px; margin: 64px auto 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+    }
+    .counter-item {
+      padding: 32px 20px;
+      text-align: center;
+      border-right: 1px solid rgba(255,255,255,0.12);
+    }
+    .counter-item:last-child { border-right: none; }
+    .counter-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem; font-weight: 700; color: var(--white);
+      line-height: 1;
+    }
+    .counter-num span { color: var(--rose-lt); }
+    .counter-label { font-size: 0.8rem; color: rgba(255,255,255,0.55); text-transform: uppercase; letter-spacing: 0.1em; margin-top: 6px; }
+
+    /* ============================================================
+       TESTIMONIALS
+    ============================================================ */
+    #testimonials { background: var(--beige); }
+
+    .testimonials-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 24px; max-width: 1200px; margin: 0 auto;
+    }
+    .testi-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      padding: 28px 26px;
+      box-shadow: var(--shadow-card);
+      transition: all var(--transition);
+      position: relative;
+    }
+    .testi-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+    .testi-quote-icon {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 4rem; line-height: 0.6;
+      color: var(--lavender); margin-bottom: 12px;
+      display: block;
+    }
+    .testi-stars { color: #f5a623; font-size: 0.92rem; margin-bottom: 14px; letter-spacing: 2px; }
+    .testi-text { font-size: 0.93rem; color: var(--text-mid); line-height: 1.72; margin-bottom: 22px; }
+    .testi-author { display: flex; align-items: center; gap: 12px; }
+    .testi-avatar {
+      width: 44px; height: 44px; border-radius: 50%;
+      background: linear-gradient(135deg, var(--lavender), var(--pink));
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem; font-weight: 700; color: var(--plum);
+      flex-shrink: 0;
+    }
+    .testi-name { font-weight: 600; color: var(--plum-dark); font-size: 0.9rem; }
+    .testi-treat { font-size: 0.76rem; color: var(--text-light); }
+
+    /* ============================================================
+       GALLERY
+    ============================================================ */
+    #gallery { background: var(--white); }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: auto;
+      gap: 16px;
+      max-width: 1200px; margin: 0 auto;
+    }
+    .gallery-item {
+      border-radius: var(--radius); overflow: hidden;
+      position: relative; cursor: pointer;
+      box-shadow: var(--shadow-card);
+    }
+    .gallery-item.wide { grid-column: span 2; }
+    .gallery-item.tall { grid-row: span 2; }
+
+    .gallery-item img {
+      width: 100%; height: 100%; min-height: 200px;
+      object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.07); }
+
+    .gallery-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(74,25,66,0.75) 0%, transparent 60%);
+      opacity: 0; transition: opacity var(--transition);
+      display: flex; align-items: flex-end; padding: 20px;
+    }
+    .gallery-item:hover .gallery-overlay { opacity: 1; }
+    .gallery-overlay span { color: var(--white); font-size: 0.85rem; font-weight: 500; }
+
+    /* ============================================================
+       FAQ
+    ============================================================ */
+    #faq { background: var(--beige); }
+
+    .faq-wrap { max-width: 780px; margin: 0 auto; }
+    .faq-item {
+      background: var(--white); border-radius: var(--radius);
+      margin-bottom: 12px; overflow: hidden;
+      box-shadow: var(--shadow-card);
+      transition: box-shadow var(--transition);
+    }
+    .faq-item:hover { box-shadow: var(--shadow-hover); }
+
+    .faq-q {
+      width: 100%; padding: 22px 24px;
+      background: none; border: none;
+      display: flex; align-items: center; justify-content: space-between;
+      cursor: pointer; gap: 16px;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.97rem; font-weight: 600;
+      color: var(--plum-dark);
+      text-align: left;
+    }
+    .faq-q .faq-icon {
+      width: 28px; height: 28px; border-radius: 50%;
+      background: var(--lavender-lt);
+      color: var(--plum); font-size: 1.2rem;
+      display: flex; align-items: center; justify-content: center;
+      transition: all var(--transition); flex-shrink: 0;
+    }
+    .faq-item.open .faq-q .faq-icon { background: var(--plum); color: var(--white); transform: rotate(45deg); }
+    .faq-a {
+      max-height: 0; overflow: hidden;
+      transition: max-height 0.45s ease, padding 0.3s ease;
+    }
+    .faq-a-inner { padding: 0 24px 22px; color: var(--text-mid); font-size: 0.91rem; line-height: 1.75; }
+
+    /* ============================================================
+       APPOINTMENT
+    ============================================================ */
+    #appointment {
+      background: linear-gradient(160deg, var(--pink-soft) 0%, var(--lavender-lt) 100%);
+    }
+    .appt-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 64px; align-items: center;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .appt-info .section-title { text-align: left; }
+
+    .appt-feature {
+      display: flex; align-items: flex-start; gap: 14px; margin-bottom: 20px;
+    }
+    .appt-feature-icon {
+      width: 42px; height: 42px; border-radius: 12px;
+      background: linear-gradient(135deg, var(--plum), var(--plum-mid));
+      color: var(--white); display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; flex-shrink: 0;
+    }
+    .appt-feature-text strong { display: block; font-size: 0.9rem; font-weight: 600; color: var(--plum-dark); margin-bottom: 3px; }
+    .appt-feature-text span { font-size: 0.82rem; color: var(--text-light); }
+
+    .appt-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      box-shadow: var(--shadow-hover);
+    }
+    .form-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.6rem; font-weight: 700;
+      color: var(--plum-dark); margin-bottom: 24px;
+    }
+
+    .form-group { margin-bottom: 18px; }
+    .form-group label {
+      display: block; font-size: 0.8rem; font-weight: 600;
+      color: var(--text-mid); text-transform: uppercase;
+      letter-spacing: 0.06em; margin-bottom: 7px;
+    }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%; padding: 13px 16px;
+      border: 1.5px solid rgba(74,25,66,0.12);
+      border-radius: 12px; background: var(--beige);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.91rem; color: var(--text-dark);
+      transition: all var(--transition); outline: none;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      border-color: var(--plum);
+      background: var(--white);
+      box-shadow: 0 0 0 3px rgba(74,25,66,0.08);
+    }
+    .form-group textarea { resize: vertical; min-height: 90px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+
+    /* ============================================================
+       CONTACT
+    ============================================================ */
+    #contact { background: var(--white); }
+
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1.4fr;
+      gap: 56px; max-width: 1200px; margin: 0 auto;
+    }
+
+    .contact-info-card {
+      background: linear-gradient(160deg, var(--plum-dark), var(--plum-mid));
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      color: var(--white);
+    }
+    .contact-info-card h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.8rem; font-weight: 700; margin-bottom: 28px;
+    }
+
+    .contact-item {
+      display: flex; align-items: flex-start; gap: 14px;
+      margin-bottom: 22px;
+    }
+    .contact-item-icon {
+      width: 40px; height: 40px; border-radius: 10px;
+      background: rgba(255,255,255,0.12);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.05rem; flex-shrink: 0;
+    }
+    .contact-item-text strong { display: block; font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--lavender); margin-bottom: 3px; }
+    .contact-item-text span { font-size: 0.9rem; color: rgba(255,255,255,0.8); }
+
+    .social-btns { display: flex; gap: 12px; margin-top: 32px; flex-wrap: wrap; }
+    .social-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 20px;
+      border-radius: 99px;
+      font-size: 0.84rem; font-weight: 600;
+      text-decoration: none; transition: all var(--transition);
+    }
+    .social-btn.insta {
+      background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      color: var(--white);
+    }
+    .social-btn.wa {
+      background: #25d366; color: var(--white);
+    }
+    .social-btn:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.25); }
+
+    .map-wrap {
+      border-radius: var(--radius-lg); overflow: hidden;
+      box-shadow: var(--shadow-card); height: 300px;
+      margin-top: 24px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+
+    /* ============================================================
+       FOOTER
+    ============================================================ */
+    footer {
+      background: var(--plum-dark);
+      color: rgba(255,255,255,0.65);
+      padding: 70px 5% 30px;
+    }
+
+    .footer-grid {
+      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px; max-width: 1200px; margin: 0 auto;
+      padding-bottom: 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    .footer-brand-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.3rem; font-weight: 700; color: var(--white);
+      margin-bottom: 12px;
+    }
+    .footer-brand-sub { font-size: 0.83rem; line-height: 1.7; max-width: 260px; }
+
+    .footer-col h4 {
+      font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.12em;
+      color: var(--lavender); font-weight: 600; margin-bottom: 18px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 10px; }
+    .footer-col ul li a {
+      color: rgba(255,255,255,0.6); text-decoration: none;
+      font-size: 0.87rem; transition: color 0.2s;
+    }
+    .footer-col ul li a:hover { color: var(--pink); }
+
+    .footer-social { display: flex; gap: 10px; margin-top: 18px; }
+    .footer-social-btn {
+      width: 38px; height: 38px; border-radius: 10px;
+      background: rgba(255,255,255,0.08);
+      display: flex; align-items: center; justify-content: center;
+      color: rgba(255,255,255,0.6); text-decoration: none; font-size: 1rem;
+      transition: all 0.2s;
+    }
+    .footer-social-btn:hover { background: var(--plum-mid); color: var(--white); transform: translateY(-2px); }
+
+    .footer-bottom {
+      max-width: 1200px; margin: 28px auto 0;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 12px;
+      font-size: 0.8rem;
+    }
+    .footer-bottom a { color: var(--lavender); text-decoration: none; }
+
+    /* ============================================================
+       FLOATING BUTTONS
+    ============================================================ */
+    .fab-group {
+      position: fixed; bottom: 28px; right: 28px;
+      display: flex; flex-direction: column; gap: 12px;
+      z-index: 900;
+    }
+    .fab {
+      width: 52px; height: 52px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.3rem; cursor: pointer; border: none;
+      text-decoration: none;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.22);
+      transition: all var(--transition);
+    }
+    .fab:hover { transform: scale(1.12) translateY(-2px); }
+    .fab-wa { background: #25d366; color: var(--white); }
+    .fab-top { background: var(--plum); color: var(--white); display: none; }
+    .fab-top.visible { display: flex; }
+
+    /* ============================================================
+       RESPONSIVE
+    ============================================================ */
+    @media (max-width: 1024px) {
+      .hero-inner { grid-template-columns: 1fr; text-align: center; gap: 48px; }
+      .hero-sub { margin: 0 auto 36px; }
+      .hero-ctas { justify-content: center; }
+      .hero-stats { justify-content: center; }
+      .hero-image-wrap { order: -1; }
+      .about-grid { grid-template-columns: 1fr; gap: 48px; }
+      .about-img-stack { padding: 20px; max-width: 480px; margin: 0 auto; }
+      .appt-grid { grid-template-columns: 1fr; gap: 40px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .counters-wrap { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 768px) {
+      section { padding: 72px 5%; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .hero-title { font-size: clamp(2.2rem, 8vw, 3rem); }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item.wide { grid-column: span 1; }
+      .gallery-item.tall { grid-row: span 1; }
+      .footer-grid { grid-template-columns: 1fr; }
+      .float-card-tl, .float-card-br { display: none; }
+      .form-row { grid-template-columns: 1fr; }
+      .counters-wrap { grid-template-columns: repeat(2,1fr); }
+    }
+
+    @media (max-width: 480px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .hero-stats { flex-direction: column; gap: 16px; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===================== SCROLL PROGRESS ===================== -->
+  <div id="scroll-progress"></div>
+
+  <!-- ===================== LOADER ===================== -->
+  <div id="loader" role="status" aria-label="Loading">
+    <div class="loader-petals" id="loader-petals"></div>
+
+    <div class="loader-logo">
+      Dr. Nishi Yadav
+      <span>Skin &amp; Hair Specialist</span>
+    </div>
+
+    <div class="loader-bar-wrap">
+      <div class="loader-bar"></div>
+    </div>
+
+    <p class="loader-credit">
+      Made with ❤️ by <a href="https://yourportfolio.com" target="_blank" rel="noopener">Prateek</a>
+    </p>
+  </div>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav id="navbar" role="navigation" aria-label="Main navigation">
+    <a href="#hero" class="nav-brand" aria-label="Dr. Nishi Yadav Home">
+      <div class="nav-brand-icon" aria-hidden="true">Dr.</div>
+      <div class="nav-brand-text">
+        Dr. Nishi Yadav
+        <small>Skin &amp; Hair Specialist</small>
+      </div>
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#results">Results</a></li>
+      <li><a href="#testimonials">Reviews</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#appointment" class="btn-nav">Book Now</a></li>
+    </ul>
+
+    <button class="hamburger" id="hamburger" aria-label="Open menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+
+  <!-- ===================== MOBILE MENU ===================== -->
+  <div class="mobile-menu" id="mobile-menu" role="dialog" aria-label="Mobile navigation">
+    <a href="#about"         onclick="closeMobileMenu()">About</a>
+    <a href="#services"      onclick="closeMobileMenu()">Services</a>
+    <a href="#results"       onclick="closeMobileMenu()">Results</a>
+    <a href="#testimonials"  onclick="closeMobileMenu()">Reviews</a>
+    <a href="#gallery"       onclick="closeMobileMenu()">Gallery</a>
+    <a href="#faq"           onclick="closeMobileMenu()">FAQ</a>
+    <a href="#appointment"   onclick="closeMobileMenu()">Book Appointment</a>
+    <a href="#contact"       onclick="closeMobileMenu()">Contact</a>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <section id="hero" aria-label="Hero">
+    <div class="hero-blobs" aria-hidden="true">
+      <div class="blob blob-1"></div>
+      <div class="blob blob-2"></div>
+      <div class="blob blob-3"></div>
+    </div>
+
+    <div class="hero-inner">
+      <!-- Left: Content -->
+      <div class="hero-content">
+        <div class="hero-badge">Certified Gold Medalist Dermatologist</div>
+
+        <h1 class="hero-title">
+          Healthy Skin Begins<br />
+          With <em>Expert Care</em>
+        </h1>
+
+        <p class="hero-sub">
+          Advanced Dermatology, Hair &amp; Aesthetic Treatments in Etawah.
+          Trusted by thousands for glowing, healthy skin.
+        </p>
+
+        <div class="hero-ctas">
+          <a href="#appointment" class="btn-primary">
+            <span>📅</span> <span>Book Appointment</span>
+          </a>
+          <a href="#services" class="btn-outline" style="color:var(--pink);border-color:rgba(255,255,255,0.35);">
+            <span>✦</span> <span style="color:var(--white)">View Services</span>
+          </a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <div class="hero-stat-num" data-target="5000">0<span>+</span></div>
+            <div class="hero-stat-label">Happy Patients</div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-target="10">0<span>+</span></div>
+            <div class="hero-stat-label">Years Experience</div>
+          </div>
+          <div>
+            <div class="hero-stat-num" data-target="15">0<span>+</span></div>
+            <div class="hero-stat-label">Treatments</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Doctor Image -->
+      <div class="hero-image-wrap" aria-hidden="true">
+        <div class="hero-deco-ring ring-1"></div>
+        <div class="hero-deco-ring ring-2"></div>
+
+        <!-- Floating card: top-left -->
+        <div class="hero-float-card float-card-tl">
+          <div class="icon-wrap" style="background:#fff0f5;">✨</div>
+          <p>Skin Glow Score</p>
+          <strong>98% Success Rate</strong>
+        </div>
+
+        <!-- Main Doctor Image -->
+        <div class="hero-img-card">
+          <!-- PLACEHOLDER: replace with images/doctor-main.jpg -->
+          <img
+            src="images/doctor-main.jpg"
+            alt="Dr. Nishi Yadav – Gold Medalist Dermatologist in Etawah"
+            loading="eager"
+            width="340" height="420"
+            onerror="this.style.minHeight='420px';this.style.background='linear-gradient(160deg,#6b2c63,#c9a7d4)';this.alt='Dr. Nishi Yadav';"
+          />
+          <div class="hero-img-badge">
+            <strong>Dr. Nishi Yadav</strong>
+            <small>MBBS, MD (Dermatology) · Gold Medalist</small>
+          </div>
+        </div>
+
+        <!-- Floating card: bottom-right -->
+        <div class="hero-float-card float-card-br">
+          <div class="icon-wrap" style="background:#f0f5ff;">🏅</div>
+          <p>Recognition</p>
+          <strong>Gold Medalist</strong>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== ABOUT ===================== -->
+  <section id="about" aria-labelledby="about-title">
+    <div class="about-grid">
+      <!-- Image Stack -->
+      <div class="about-img-stack reveal-left">
+        <div class="about-bg-shape"></div>
+
+        <div class="about-img-main">
+          <!-- PLACEHOLDER: replace with images/doctor-about.jpg -->
+          <img
+            src="images/doctor-about.jpg"
+            alt="Dr. Nishi Yadav in consultation"
+            loading="lazy"
+            width="500" height="600"
+            onerror="this.style.minHeight='480px';this.style.background='linear-gradient(160deg,#eedff5,#fce8f0)';this.alt='';"
+          />
+        </div>
+
+        <div class="about-img-deco">
+          <!-- PLACEHOLDER: replace with images/clinic-reception.jpg -->
+          <img
+            src="images/clinic-reception.jpg"
+            alt="Clinic reception area"
+            loading="lazy"
+            width="260" height="200"
+            onerror="this.style.minHeight='160px';this.style.background='linear-gradient(135deg,#4a1942,#c9a7d4)';this.alt='';"
+          />
+        </div>
+      </div>
+
+      <!-- Content -->
+      <div class="about-content reveal-right">
+        <span class="section-tag">Meet Your Doctor</span>
+        <h2 class="section-title" id="about-title">Dr. Nishi Yadav</h2>
+
+        <div class="about-quote">
+          "Every patient deserves personalised, evidence-based care that brings out their natural beauty."
+        </div>
+
+        <p class="about-text">
+          Dr. Nishi Yadav is a distinguished <strong>Gold Medalist Dermatologist, Cosmetologist &amp; Trichologist</strong>
+          holding MBBS and MD in Dermatology. With over a decade of expertise, she has transformed the skin and hair health
+          of thousands of patients across Etawah and Uttar Pradesh.
+        </p>
+        <p class="about-text">
+          Her clinic in Friends Colony, Etawah offers state-of-the-art treatments in a warm, welcoming environment —
+          from advanced laser therapy to bespoke bridal skincare, combining science with artistry for exceptional results.
+        </p>
+
+        <div class="about-certs">
+          <span class="cert-pill">MBBS</span>
+          <span class="cert-pill">MD – Dermatology</span>
+          <span class="cert-pill">Gold Medalist</span>
+          <span class="cert-pill">Cosmetologist</span>
+          <span class="cert-pill">Trichologist</span>
+        </div>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#appointment" class="btn-primary"><span>Book Consultation</span></a>
+          <a href="#contact" class="btn-outline">📍 Find Clinic</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== SERVICES ===================== -->
+  <section id="services" aria-labelledby="services-title">
+    <div class="section-header reveal">
+      <span class="section-tag">What We Treat</span>
+      <h2 class="section-title" id="services-title">Expert Skin &amp; Hair Services</h2>
+      <p class="section-subtitle">
+        From acne to advanced laser treatments — we offer a complete spectrum of dermatology and aesthetic solutions.
+      </p>
+    </div>
+
+    <div class="services-grid">
+      <!-- Service Cards -->
+      <div class="service-card reveal">
+        <div class="service-icon">🫧</div>
+        <div class="service-name">Acne Treatment</div>
+        <div class="service-desc">Advanced medical protocols to clear stubborn acne and prevent future breakouts for smooth, clear skin.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">✨</div>
+        <div class="service-name">Pigmentation Treatment</div>
+        <div class="service-desc">Target dark spots, melasma and uneven tone with evidence-based depigmentation therapies.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💆</div>
+        <div class="service-name">Hair Fall Treatment</div>
+        <div class="service-desc">Holistic scalp and hair assessment with customised treatment plans to restore density and health.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💉</div>
+        <div class="service-name">PRP Therapy</div>
+        <div class="service-desc">Platelet-Rich Plasma injections to stimulate hair regrowth and rejuvenate skin naturally.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">⚡</div>
+        <div class="service-name">Laser Treatment</div>
+        <div class="service-desc">FDA-approved laser technologies for hair removal, skin resurfacing and pigmentation correction.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🧪</div>
+        <div class="service-name">Chemical Peel</div>
+        <div class="service-desc">Medical-grade peels to exfoliate, brighten and refine skin texture for a radiant complexion.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🌸</div>
+        <div class="service-name">Anti-Aging Treatment</div>
+        <div class="service-desc">Restore youthful firmness with fillers, Botox-alternatives and regenerative skin therapies.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💎</div>
+        <div class="service-name">Skin Rejuvenation</div>
+        <div class="service-desc">Comprehensive protocols to restore your skin's natural glow, elasticity and hydration.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔬</div>
+        <div class="service-name">Scalp Treatment</div>
+        <div class="service-desc">Targeted therapies for dandruff, scalp psoriasis, seborrheic dermatitis and more.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💦</div>
+        <div class="service-name">Hydra Facial</div>
+        <div class="service-desc">Multi-step hydradermabrasion treatment delivering instant glow with zero downtime.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">👁️</div>
+        <div class="service-name">Dark Circle Treatment</div>
+        <div class="service-desc">Specialised eye-area treatments to brighten periorbital darkness and reduce puffiness.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💍</div>
+        <div class="service-name">Bridal Skin Care</div>
+        <div class="service-desc">Customised pre-bridal skin packages for a luminous, picture-perfect glow on your special day.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🖋️</div>
+        <div class="service-name">Tattoo Removal</div>
+        <div class="service-desc">Safe and effective Q-Switch laser tattoo removal with minimal risk and maximum results.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔵</div>
+        <div class="service-name">Mole/Wart Removal</div>
+        <div class="service-desc">Precise, scar-free removal of moles, warts and skin tags using advanced techniques.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🩺</div>
+        <div class="service-name">Skin Allergy Treatment</div>
+        <div class="service-desc">Expert diagnosis and management of eczema, urticaria, contact dermatitis and other allergies.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== BEFORE/AFTER ===================== -->
+  <section id="results" aria-labelledby="results-title">
+    <div class="section-header reveal">
+      <span class="section-tag">Real Results</span>
+      <h2 class="section-title" id="results-title">Before &amp; After Transformations</h2>
+      <p class="section-subtitle">
+        Witness the life-changing results achieved by our patients under Dr. Nishi Yadav's expert care.
+      </p>
+    </div>
+
+    <div class="results-grid">
+      <div class="result-card reveal">
+        <div class="result-imgs">
+          <div class="result-img-wrap">
+            <!-- PLACEHOLDER: images/result-acne-before.jpg -->
+            <img src="images/result-acne-before.jpg" alt="Acne treatment before" loading="lazy" onerror="this.style.background='#d8c4d6';this.style.minHeight='190px';"/>
+            <span class="result-label">Before</span>
+          </div>
+          <div class="result-img-wrap">
+            <!-- PLACEHOLDER: images/result-acne-after.jpg -->
+            <img src="images/result-acne-after.jpg" alt="Acne treatment after" loading="lazy" onerror="this.style.background='#f3d5e3';this.style.minHeight='190px';"/>
+            <span class="result-label" style="background:rgba(74,25,66,0.7);">After</span>
+          </div>
+        </div>
+        <div class="result-info">
+          <h4>Acne &amp; Scar Treatment</h4>
+          <p>8-week advanced acne protocol · Patient from Etawah</p>
+        </div>
+      </div>
+
+      <div class="result-card reveal">
+        <div class="result-imgs">
+          <div class="result-img-wrap">
+            <!-- PLACEHOLDER: images/result-pigment-before.jpg -->
+            <img src="images/result-pigment-before.jpg" alt="Pigmentation before" loading="lazy" onerror="this.style.background='#c9b2c6';this.style.minHeight='190px';"/>
+            <span class="result-label">Before</span>
+          </div>
+          <div class="result-img-wrap">
+            <!-- PLACEHOLDER: images/result-pigment-after.jpg -->
+            <img src="images/result-pigment-after.jpg" alt="Pigmentation after" loading="lazy" onerror="this.style.background='#f7e0ec';this.style.minHeight='190px';"/>
+            <span class="result-label" style="background:rgba(74,25,66,0.7);">After</span>
+          </div>
+        </div>
+        <div class="result-info">
+          <h4>Pigmentation &amp; Melasma</h4>
+          <p>Chemical peel + laser combo · 10 sessions</p>
+        </div>
+      </div>
+
+      <div class="result-card reveal">
+        <div class="result-imgs">
+          <div class="result-img-wrap">
+            <!-- PLACEHOLDER: images/result-hair-before.jpg -->
+            <img src="images/result-hair-before.jpg" alt="Hair fall before" loading="lazy" onerror="this.style.background='#b8a0b5';this.style.minHeight='190px';"/>
+            <span class="result-label">Before</span>
+          </div>
+          <div class="result-img-wrap">
+            <!-- PLACEHOLDER: images/result-hair-after.jpg -->
+            <img src="images/result-hair-after.jpg" alt="Hair fall after" loading="lazy" onerror="this.style.background='#e8d0e0';this.style.minHeight='190px';"/>
+            <span class="result-label" style="background:rgba(74,25,66,0.7);">After</span>
+          </div>
+        </div>
+        <div class="result-info">
+          <h4>Hair Fall &amp; PRP Therapy</h4>
+          <p>PRP + scalp treatment · 6-month journey</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== WHY CHOOSE US ===================== -->
+  <section id="why" aria-labelledby="why-title">
+    <div class="section-header reveal">
+      <span class="section-tag">Why Us</span>
+      <h2 class="section-title" id="why-title">Why Choose Dr. Nishi Yadav?</h2>
+      <p class="section-subtitle">
+        A commitment to excellence, patient safety, and transformative results distinguishes us from the rest.
+      </p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card reveal">
+        <div class="why-icon">🏅</div>
+        <h3>Gold Medal Expertise</h3>
+        <p>Dr. Nishi Yadav holds an MD in Dermatology with a Gold Medal — ensuring you receive the highest quality medical care.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🔬</div>
+        <h3>Science-Based Treatments</h3>
+        <p>Every treatment is grounded in evidence-based dermatology, using only approved, clinically proven protocols.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">💖</div>
+        <h3>Personalised Care</h3>
+        <p>No cookie-cutter treatments — each patient receives a customised plan tailored to their unique skin type and goals.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🏥</div>
+        <h3>Advanced Technology</h3>
+        <p>State-of-the-art laser, PRP, and aesthetic equipment to deliver safe, effective and comfortable treatments.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">⏰</div>
+        <h3>Flexible Timings</h3>
+        <p>Open 10 AM – 7 PM, six days a week, to accommodate your busy schedule with zero compromise on care quality.</p>
+      </div>
+      <div class="why-card reveal">
+        <div class="why-icon">🌟</div>
+        <h3>5000+ Happy Patients</h3>
+        <p>A trusted name in dermatology across Etawah, backed by thousands of success stories and glowing testimonials.</p>
+      </div>
+    </div>
+
+    <div class="counters-wrap">
+      <div class="counter-item">
+        <div class="counter-num"><span class="count-up" data-target="5000">0</span><span>+</span></div>
+        <div class="counter-label">Patients Treated</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num"><span class="count-up" data-target="10">0</span><span>+</span></div>
+        <div class="counter-label">Years Experience</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num"><span class="count-up" data-target="15">0</span><span>+</span></div>
+        <div class="counter-label">Treatments Offered</div>
+      </div>
+      <div class="counter-item">
+        <div class="counter-num"><span class="count-up" data-target="98">0</span><span>%</span></div>
+        <div class="counter-label">Satisfaction Rate</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TESTIMONIALS ===================== -->
+  <section id="testimonials" aria-labelledby="testi-title">
+    <div class="section-header reveal">
+      <span class="section-tag">Patient Reviews</span>
+      <h2 class="section-title" id="testi-title">What Our Patients Say</h2>
+      <p class="section-subtitle">
+        Real words from real patients — their stories inspire us to continue delivering excellence.
+      </p>
+    </div>
+
+    <div class="testimonials-grid">
+      <div class="testi-card reveal">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Dr. Nishi Yadav completely transformed my skin. After years of struggling with acne scars, her treatment gave me confidence I never thought possible. Truly a gifted doctor!</p>
+        <div class="testi-author">
+          <div class="testi-avatar">P</div>
+          <div>
+            <div class="testi-name">Priya Sharma</div>
+            <div class="testi-treat">Acne Scar Treatment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">I was losing hair rapidly and had almost given up hope. After PRP therapy with Dr. Nishi, I have visibly thicker hair within 3 months. Highly recommend her clinic!</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#a7c4d4,#d4e8f5);color:#1a3a4a;">R</div>
+          <div>
+            <div class="testi-name">Rahul Verma</div>
+            <div class="testi-treat">PRP Hair Treatment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Got the bridal skin care package before my wedding and the results were absolutely stunning. Everyone at the wedding kept asking about my glowing skin. Thank you, Doctor!</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#f3c6d8,#f9e0ea);color:#6b2c63;">A</div>
+          <div>
+            <div class="testi-name">Anjali Gupta</div>
+            <div class="testi-treat">Bridal Skin Care</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">The pigmentation on my face that I had for years is nearly gone after the laser treatment sessions. Dr. Nishi is incredibly knowledgeable and the staff is very supportive.</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#d4c4a4,#f0e8d0);color:#4a3a1a;">S</div>
+          <div>
+            <div class="testi-name">Sunita Patel</div>
+            <div class="testi-treat">Laser Pigmentation Treatment</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">The Hydra Facial experience was absolutely luxurious. My skin has never felt so soft and radiant. I've become a regular patient now — the whole experience is wonderful!</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#c4d4a4,#e0f0d0);color:#1a4a1a;">M</div>
+          <div>
+            <div class="testi-name">Meera Singh</div>
+            <div class="testi-treat">Hydra Facial</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal">
+        <span class="testi-quote-icon">"</span>
+        <div class="testi-stars">★★★★★</div>
+        <p class="testi-text">Visited for dark circles treatment and the results after the sessions have been remarkable. Professional, clean clinic with a genuinely caring doctor. 10/10 recommend!</p>
+        <div class="testi-author">
+          <div class="testi-avatar" style="background:linear-gradient(135deg,#c4a4d4,#e8d0f0);color:#3a1a4a;">K</div>
+          <div>
+            <div class="testi-name">Kavya Mishra</div>
+            <div class="testi-treat">Dark Circle Treatment</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== GALLERY ===================== -->
+  <section id="gallery" aria-labelledby="gallery-title">
+    <div class="section-header reveal">
+      <span class="section-tag">Our Clinic</span>
+      <h2 class="section-title" id="gallery-title">Inside Our Clinic</h2>
+      <p class="section-subtitle">
+        A modern, hygienic and welcoming environment designed for your comfort and confidence.
+      </p>
+    </div>
+
+    <div class="gallery-grid">
+      <div class="gallery-item wide tall reveal">
+        <!-- PLACEHOLDER: images/gallery-reception.jpg -->
+        <img src="images/gallery-reception.jpg" alt="Clinic reception" loading="lazy" onerror="this.style.background='linear-gradient(160deg,#4a1942,#6b2c63)';this.style.minHeight='420px';"/>
+        <div class="gallery-overlay"><span>Reception Area</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <!-- PLACEHOLDER: images/gallery-treatment-room.jpg -->
+        <img src="images/gallery-treatment-room.jpg" alt="Treatment room" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#c9a7d4,#eedff5)';this.style.minHeight='200px';"/>
+        <div class="gallery-overlay"><span>Treatment Room</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <!-- PLACEHOLDER: images/gallery-laser-equipment.jpg -->
+        <img src="images/gallery-laser-equipment.jpg" alt="Laser equipment" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#6b2c63,#c9a7d4)';this.style.minHeight='200px';"/>
+        <div class="gallery-overlay"><span>Advanced Laser Equipment</span></div>
+      </div>
+      <div class="gallery-item reveal">
+        <!-- PLACEHOLDER: images/gallery-consultation.jpg -->
+        <img src="images/gallery-consultation.jpg" alt="Doctor consultation" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#f3c6d8,#c9a7d4)';this.style.minHeight='200px';"/>
+        <div class="gallery-overlay"><span>Consultation Room</span></div>
+      </div>
+      <div class="gallery-item wide reveal">
+        <!-- PLACEHOLDER: images/gallery-skincare-products.jpg -->
+        <img src="images/gallery-skincare-products.jpg" alt="Skincare products" loading="lazy" onerror="this.style.background='linear-gradient(135deg,#faf5f0,#f3c6d8)';this.style.minHeight='200px';"/>
+        <div class="gallery-overlay"><span>Medical-Grade Skincare</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FAQ ===================== -->
+  <section id="faq" aria-labelledby="faq-title">
+    <div class="section-header reveal">
+      <span class="section-tag">Common Questions</span>
+      <h2 class="section-title" id="faq-title">Frequently Asked Questions</h2>
+      <p class="section-subtitle">
+        Answers to the most common questions we receive from our patients.
+      </p>
+    </div>
+
+    <div class="faq-wrap">
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          Do I need a prior appointment?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">While walk-in consultations are welcome during clinic hours (10 AM – 7 PM), we strongly recommend booking an appointment via WhatsApp to avoid waiting time and ensure dedicated attention from Dr. Nishi Yadav.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          How many sessions does a laser treatment require?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">The number of sessions varies depending on your skin type, condition, and treatment goals. Generally, laser treatments require 4–8 sessions spaced 4–6 weeks apart. Dr. Nishi will give you a personalised treatment plan during your initial consultation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          Is PRP therapy safe for hair regrowth?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">Yes, PRP (Platelet-Rich Plasma) therapy is a clinically proven, safe procedure that uses your body's own blood plasma to stimulate hair follicles. It is non-surgical, minimally invasive and has minimal downtime. Most patients see visible improvement after 3–4 sessions.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          What is the best treatment for acne scars?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">The most effective approach for acne scars typically combines chemical peels, micro-needling, and laser resurfacing. The ideal combination depends on the type and severity of your scars. Dr. Nishi will assess your skin personally and recommend the best course of action.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          Are the treatments painful?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">Most treatments involve minimal discomfort. Topical anaesthetic creams are applied before laser and injectable procedures to maximise your comfort. Our team ensures a gentle, reassuring experience throughout your visit.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          How long do results last?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">Results vary by treatment. Laser pigmentation results can last 1–3 years with proper sun protection. Chemical peel benefits last 3–6 months. PRP hair results generally last 12–18 months. Dr. Nishi will advise on maintenance treatments to sustain optimal results.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          What is the consultation fee?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">Please contact us directly via WhatsApp or phone to inquire about consultation and treatment fees. We strive to offer affordable, transparent pricing with no hidden costs. Detailed pricing is provided at your initial consultation.</p>
+        </div>
+      </div>
+
+      <div class="faq-item reveal">
+        <button class="faq-q" aria-expanded="false">
+          Do you offer bridal skin packages?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a" aria-hidden="true">
+          <p class="faq-a-inner">Yes! We offer comprehensive pre-bridal skin care packages designed to give you your best skin for your wedding day. We recommend starting at least 3–6 months before the big day. The package includes facials, peels, brightening treatments, and personalised home-care guidance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== APPOINTMENT ===================== -->
+  <section id="appointment" aria-labelledby="appt-title">
+    <div class="appt-grid">
+      <!-- Left Info -->
+      <div class="appt-info reveal-left">
+        <span class="section-tag">Book a Visit</span>
+        <h2 class="section-title" id="appt-title">Schedule Your Appointment</h2>
+        <p class="section-subtitle" style="margin-bottom:32px;">
+          Take the first step towards healthier, glowing skin. Fill in the form and we'll connect with you on WhatsApp instantly.
+        </p>
+
+        <div class="appt-feature">
+          <div class="appt-feature-icon">⏰</div>
+          <div class="appt-feature-text">
+            <strong>Clinic Hours</strong>
+            <span>Monday – Saturday: 10:00 AM – 7:00 PM</span>
+          </div>
+        </div>
+        <div class="appt-feature">
+          <div class="appt-feature-icon">📍</div>
+          <div class="appt-feature-text">
+            <strong>Location</strong>
+            <span>Near Axis Bank, Bhartana Chauraha, Etawah, UP</span>
+          </div>
+        </div>
+        <div class="appt-feature">
+          <div class="appt-feature-icon">💬</div>
+          <div class="appt-feature-text">
+            <strong>Instant WhatsApp Booking</strong>
+            <span>Your appointment details are sent directly to our WhatsApp</span>
+          </div>
+        </div>
+        <div class="appt-feature">
+          <div class="appt-feature-icon">🩺</div>
+          <div class="appt-feature-text">
+            <strong>Expert Consultation</strong>
+            <span>Personalised advice from Dr. Nishi Yadav MD (Dermatology)</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Form -->
+      <div class="appt-form reveal-right">
+        <h3 class="form-title">Book Your Appointment</h3>
+
+        <div id="appt-form-fields">
+          <div class="form-group">
+            <label for="appt-name">Full Name</label>
+            <input type="text" id="appt-name" placeholder="Your full name" autocomplete="name" required />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="appt-phone">Phone Number</label>
+              <input type="tel" id="appt-phone" placeholder="+91 XXXXXXXXXX" autocomplete="tel" required />
+            </div>
+            <div class="form-group">
+              <label for="appt-date">Preferred Date</label>
+              <input type="date" id="appt-date" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="appt-treatment">Select Treatment</label>
+            <select id="appt-treatment" required>
+              <option value="">-- Choose a Treatment --</option>
+              <option>Acne Treatment</option>
+              <option>Pigmentation Treatment</option>
+              <option>Hair Fall Treatment</option>
+              <option>PRP Therapy</option>
+              <option>Laser Treatment</option>
+              <option>Chemical Peel</option>
+              <option>Anti-Aging Treatment</option>
+              <option>Skin Rejuvenation</option>
+              <option>Scalp Treatment</option>
+              <option>Hydra Facial</option>
+              <option>Dark Circle Treatment</option>
+              <option>Bridal Skin Care</option>
+              <option>Tattoo Removal</option>
+              <option>Mole/Wart Removal</option>
+              <option>Skin Allergy Treatment</option>
+              <option>General Consultation</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="appt-message">Message (Optional)</label>
+            <textarea id="appt-message" placeholder="Describe your skin concern or any questions…"></textarea>
+          </div>
+
+          <button class="btn-primary" style="width:100%;justify-content:center;" onclick="submitAppointment()">
+            <span>📲</span> <span>Book via WhatsApp</span>
+          </button>
+
+          <p style="font-size:0.76rem;color:var(--text-light);text-align:center;margin-top:12px;">
+            Your form details will be pre-filled in WhatsApp for quick booking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== CONTACT ===================== -->
+  <section id="contact" aria-labelledby="contact-title">
+    <div class="section-header reveal">
+      <span class="section-tag">Get In Touch</span>
+      <h2 class="section-title" id="contact-title">Find Us &amp; Contact Us</h2>
+      <p class="section-subtitle">
+        We're located in the heart of Etawah, UP. Visit us or reach out anytime.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info Card -->
+      <div class="contact-info-card reveal-left">
+        <h3>Clinic Information</h3>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div class="contact-item-text">
+            <strong>Address</strong>
+            <span>Bhartana Chauraha to Patta Bagh,<br />Near Axis Bank, Friends Colony,<br />Etawah, Uttar Pradesh</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">⏰</div>
+          <div class="contact-item-text">
+            <strong>Clinic Timings</strong>
+            <span>Monday – Saturday: 10:00 AM – 7:00 PM<br /><em style="font-size:0.8rem;opacity:0.7;">Sunday: Closed</em></span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📞</div>
+          <div class="contact-item-text">
+            <strong>WhatsApp / Call</strong>
+            <span id="contact-phone-display">+91XXXXXXXXXX</span>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-item-icon">📸</div>
+          <div class="contact-item-text">
+            <strong>Instagram</strong>
+            <span>@drnishidermatologist</span>
+          </div>
+        </div>
+
+        <div class="social-btns">
+          <a href="https://www.instagram.com/drnishidermatologist" target="_blank" rel="noopener" class="social-btn insta" aria-label="Instagram">
+            📷 Instagram
+          </a>
+          <a id="contact-wa-btn" href="#" class="social-btn wa" aria-label="WhatsApp">
+            💬 WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <!-- Map -->
+      <div class="reveal-right">
+        <p style="font-size:0.95rem;color:var(--text-mid);margin-bottom:20px;line-height:1.7;">
+          Located near Axis Bank at Bhartana Chauraha, Friends Colony, Etawah — easily accessible from all parts of the city. Ample parking available nearby.
+        </p>
+        <!-- Embedded Google Maps – Etawah, UP -->
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3578.5!2d79.0263!3d26.7856!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3976a76a8b6de5af%3A0x94e7c38b7c2b5f19!2sEtawah%2C%20Uttar%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Dr. Nishi Yadav Clinic Location – Etawah">
+          </iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer role="contentinfo">
+    <div class="footer-grid">
+      <!-- Brand -->
+      <div>
+        <div class="footer-brand-text">Dr. Nishi Yadav<br />Skin &amp; Hair Specialist</div>
+        <p class="footer-brand-sub">
+          Expert dermatology, cosmetology &amp; trichology in Etawah, UP. Gold Medalist doctor with over 10 years of transforming skin and hair health.
+        </p>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/drnishidermatologist" target="_blank" rel="noopener" class="footer-social-btn" aria-label="Instagram">📷</a>
+          <a id="footer-wa-btn" href="#" class="footer-social-btn" aria-label="WhatsApp">💬</a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="#about">About Doctor</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#results">Before &amp; After</a></li>
+          <li><a href="#testimonials">Patient Reviews</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+
+      <!-- Services -->
+      <div class="footer-col">
+        <h4>Treatments</h4>
+        <ul>
+          <li><a href="#appointment">Acne Treatment</a></li>
+          <li><a href="#appointment">PRP Therapy</a></li>
+          <li><a href="#appointment">Laser Treatment</a></li>
+          <li><a href="#appointment">Chemical Peel</a></li>
+          <li><a href="#appointment">Hydra Facial</a></li>
+          <li><a href="#appointment">Bridal Skin Care</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li><a href="#contact">Bhartana Chauraha,</a></li>
+          <li><a href="#contact">Friends Colony, Etawah</a></li>
+          <li><a href="#contact">Uttar Pradesh, India</a></li>
+          <li style="margin-top:8px;"><a id="footer-phone-link" href="#">+91XXXXXXXXXX</a></li>
+          <li><a href="#appointment">Book Appointment</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© <span id="footer-year"></span> Dr. Nishi Yadav Skin &amp; Hair Specialist. All rights reserved.</p>
+      <p style="color:rgba(255,255,255,0.35);">
+        Designed with care for modern dermatology clinics.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ===================== FLOATING BUTTONS ===================== -->
+  <div class="fab-group" aria-label="Floating action buttons">
+    <a id="fab-wa" href="#" class="fab fab-wa" aria-label="WhatsApp Us" title="Chat on WhatsApp">💬</a>
+    <button class="fab fab-top" id="fab-top" aria-label="Scroll to top" onclick="scrollToTop()" title="Back to top">↑</button>
+  </div>
+
+  <!-- ============================================================
+       JAVASCRIPT
+  ============================================================ -->
+  <script>
+    /* ============================================================
+       CONFIGURATION — Edit WhatsApp number here ONLY
+    ============================================================ */
+    const WHATSAPP_NUMBER = "+91XXXXXXXXXX"; // ← Replace with actual number, e.g. "+919876543210"
+
+    /* ============================================================
+       INIT
+    ============================================================ */
+    document.addEventListener("DOMContentLoaded", () => {
+      setWhatsAppLinks();
+      initLoader();
+      initNavbar();
+      initHamburger();
+      initScrollProgress();
+      initReveal();
+      initFAQ();
+      initCounters();
+      initFabTop();
+      setFooterYear();
+    });
+
+    /* ============================================================
+       WHATSAPP LINKS
+    ============================================================ */
+    function getWALink(message = "") {
+      const num = WHATSAPP_NUMBER.replace(/[^0-9]/g, "");
+      return `https://wa.me/${num}${message ? "?text=" + encodeURIComponent(message) : ""}`;
+    }
+
+    function setWhatsAppLinks() {
+      const waMsg = "Hello Dr. Nishi Yadav, I would like to book an appointment at your clinic.";
+      const link  = getWALink(waMsg);
+
+      document.querySelectorAll("#fab-wa, #contact-wa-btn, #footer-wa-btn").forEach(el => el.href = link);
+
+      const phone = WHATSAPP_NUMBER;
+      document.getElementById("contact-phone-display").textContent = phone;
+      const fpl = document.getElementById("footer-phone-link");
+      fpl.textContent = phone;
+      fpl.href = link;
+    }
+
+    /* ============================================================
+       LOADER
+    ============================================================ */
+    function initLoader() {
+      // Generate petals
+      const petalsContainer = document.getElementById("loader-petals");
+      for (let i = 0; i < 12; i++) {
+        const p = document.createElement("div");
+        p.className = "petal";
+        const size = 30 + Math.random() * 80;
+        p.style.cssText = `
+          width: ${size}px; height: ${size}px;
+          left: ${Math.random() * 100}%;
+          background: ${["#c9a7d4","#f3c6d8","#c8826a","#eedff5"][Math.floor(Math.random()*4)]};
+          animation-duration: ${6 + Math.random() * 8}s;
+          animation-delay: ${-Math.random() * 8}s;
+        `;
+        petalsContainer.appendChild(p);
+      }
+
+      // Hide loader after bar completes
+      setTimeout(() => {
+        document.getElementById("loader").classList.add("hidden");
+        document.body.style.overflow = "auto";
+      }, 2600);
+
+      document.body.style.overflow = "hidden";
+    }
+
+    /* ============================================================
+       NAVBAR
+    ============================================================ */
+    function initNavbar() {
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        navbar.classList.toggle("scrolled", window.scrollY > 40);
+      }, { passive: true });
+    }
+
+    /* ============================================================
+       HAMBURGER / MOBILE MENU
+    ============================================================ */
+    function initHamburger() {
+      const btn  = document.getElementById("hamburger");
+      const menu = document.getElementById("mobile-menu");
+      btn.addEventListener("click", () => {
+        const open = menu.classList.toggle("open");
+        btn.classList.toggle("open", open);
+        btn.setAttribute("aria-expanded", open);
+        document.body.style.overflow = open ? "hidden" : "auto";
+      });
+    }
+
+    function closeMobileMenu() {
+      const btn  = document.getElementById("hamburger");
+      const menu = document.getElementById("mobile-menu");
+      menu.classList.remove("open");
+      btn.classList.remove("open");
+      btn.setAttribute("aria-expanded", "false");
+      document.body.style.overflow = "auto";
+    }
+
+    /* ============================================================
+       SCROLL PROGRESS BAR
+    ============================================================ */
+    function initScrollProgress() {
+      const bar = document.getElementById("scroll-progress");
+      window.addEventListener("scroll", () => {
+        const total  = document.documentElement.scrollHeight - window.innerHeight;
+        const pct    = total > 0 ? (window.scrollY / total) * 100 : 0;
+        bar.style.width = pct + "%";
+      }, { passive: true });
+    }
+
+    /* ============================================================
+       SCROLL REVEAL
+    ============================================================ */
+    function initReveal() {
+      const els = document.querySelectorAll(".reveal, .reveal-left, .reveal-right");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add("visible");
+            observer.unobserve(e.target);
+          }
+        });
+      }, { threshold: 0.12 });
+      els.forEach(el => observer.observe(el));
+    }
+
+    /* ============================================================
+       FAQ ACCORDION
+    ============================================================ */
+    function initFAQ() {
+      document.querySelectorAll(".faq-q").forEach(btn => {
+        btn.addEventListener("click", () => {
+          const item   = btn.closest(".faq-item");
+          const answer = item.querySelector(".faq-a");
+          const isOpen = item.classList.contains("open");
+
+          // Close all
+          document.querySelectorAll(".faq-item.open").forEach(i => {
+            i.classList.remove("open");
+            i.querySelector(".faq-a").style.maxHeight = "0";
+            i.querySelector(".faq-q").setAttribute("aria-expanded", "false");
+          });
+
+          if (!isOpen) {
+            item.classList.add("open");
+            answer.style.maxHeight = answer.scrollHeight + "px";
+            btn.setAttribute("aria-expanded", "true");
+          }
+        });
+      });
+    }
+
+    /* ============================================================
+       ANIMATED COUNTERS
+    ============================================================ */
+    function initCounters() {
+      const counters = document.querySelectorAll(".count-up");
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            animateCounter(entry.target);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      counters.forEach(c => observer.observe(c));
+    }
+
+    function animateCounter(el) {
+      const target   = +el.dataset.target;
+      const duration = 1800;
+      const step     = 16;
+      const steps    = duration / step;
+      const increment = target / steps;
+      let current = 0;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) { current = target; clearInterval(timer); }
+        el.textContent = Math.floor(current).toLocaleString();
+      }, step);
+    }
+
+    /* ============================================================
+       FAB — SCROLL TO TOP
+    ============================================================ */
+    function initFabTop() {
+      const btn = document.getElementById("fab-top");
+      window.addEventListener("scroll", () => {
+        btn.classList.toggle("visible", window.scrollY > 400);
+      }, { passive: true });
+    }
+
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+
+    /* ============================================================
+       APPOINTMENT FORM → WHATSAPP
+    ============================================================ */
+    function submitAppointment() {
+      const name      = document.getElementById("appt-name").value.trim();
+      const phone     = document.getElementById("appt-phone").value.trim();
+      const treatment = document.getElementById("appt-treatment").value;
+      const date      = document.getElementById("appt-date").value;
+      const message   = document.getElementById("appt-message").value.trim();
+
+      if (!name)      { alert("Please enter your name.");         return; }
+      if (!phone)     { alert("Please enter your phone number."); return; }
+      if (!treatment) { alert("Please select a treatment.");      return; }
+      if (!date)      { alert("Please select a preferred date."); return; }
+
+      const formattedDate = new Date(date).toLocaleDateString("en-IN", { day:"numeric", month:"long", year:"numeric" });
+
+      const waText =
+        `🌸 *Appointment Request*\n` +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `👤 *Name:* ${name}\n` +
+        `📞 *Phone:* ${phone}\n` +
+        `💆 *Treatment:* ${treatment}\n` +
+        `📅 *Preferred Date:* ${formattedDate}\n` +
+        (message ? `💬 *Message:* ${message}\n` : "") +
+        `━━━━━━━━━━━━━━━━━━━━\n` +
+        `Sent from Dr. Nishi Yadav Website`;
+
+      window.open(getWALink(waText), "_blank", "noopener");
+    }
+
+    /* ============================================================
+       FOOTER YEAR
+    ============================================================ */
+    function setFooterYear() {
+      document.getElementById("footer-year").textContent = new Date().getFullYear();
+    }
+  </script>
+
+</body>
+</html>
+
+<!--
+==============================================================
+IMAGE REQUIREMENTS
+==============================================================
+
+FOLDER STRUCTURE:
+  project-root/
+  ├── index.html
+  └── images/
+      ├── favicon.png
+      ├── og-cover.jpg
+      ├── doctor-main.jpg
+      ├── doctor-about.jpg
+      ├── clinic-reception.jpg
+      ├── result-acne-before.jpg
+      ├── result-acne-after.jpg
+      ├── result-pigment-before.jpg
+      ├── result-pigment-after.jpg
+      ├── result-hair-before.jpg
+      ├── result-hair-after.jpg
+      ├── gallery-reception.jpg
+      ├── gallery-treatment-room.jpg
+      ├── gallery-laser-equipment.jpg
+      ├── gallery-consultation.jpg
+      └── gallery-skincare-products.jpg
+
+==============================================================
+IMAGE DETAILS
+==============================================================
+
+1. favicon.png
+   Size:  64×64px (also provide 32×32 and 16×16)
+   Use:   Browser tab icon
+   Style: Clinic logo mark or "Dr." monogram on plum background
+
+2. og-cover.jpg
+   Size:  1200×630px
+   Use:   Open Graph / social media share preview
+   Style: Doctor portrait + clinic name on elegant plum-lavender gradient
+
+3. doctor-main.jpg
+   Size:  680×840px
+   Use:   Hero Section (main doctor image)
+   Style: Professional portrait of Dr. Nishi Yadav in white doctor coat,
+          soft studio lighting, neutral/white background, confident pose,
+          upper body to feet visible
+
+4. doctor-about.jpg
+   Size:  500×600px
+   Use:   About Section (primary image)
+   Style: Warm, approachable portrait of doctor in consultation setting,
+          soft natural lighting, slight smile, professional attire
+
+5. clinic-reception.jpg
+   Size:  400×320px
+   Use:   About Section (decorative inset image)
+   Style: Modern clinic reception area, clean white & plum tones,
+          plants, lighting panels, welcoming aesthetic
+
+6. result-acne-before.jpg
+   Size:  400×380px
+   Use:   Before/After — Acne Treatment (Before)
+   Style: Close-up face photo showing active acne / acne scars,
+          consistent lighting & angle for pair comparison
+
+7. result-acne-after.jpg
+   Size:  400×380px
+   Use:   Before/After — Acne Treatment (After)
+   Style: Same subject, same angle, showing clear, healed skin
+          post-treatment; consistent lighting as "before" photo
+
+8. result-pigment-before.jpg
+   Size:  400×380px
+   Use:   Before/After — Pigmentation (Before)
+   Style: Face showing melasma / dark patches / uneven skin tone;
+          consistent angle & lighting for pair comparison
+
+9. result-pigment-after.jpg
+   Size:  400×380px
+   Use:   Before/After — Pigmentation (After)
+   Style: Same subject showing significantly lighter, more even skin tone
+
+10. result-hair-before.jpg
+    Size:  400×380px
+    Use:   Before/After — Hair Fall (Before)
+    Style: Scalp/top-of-head showing thinning hair, visible scalp
+
+11. result-hair-after.jpg
+    Size:  400×380px
+    Use:   Before/After — Hair Fall (After)
+    Style: Same area showing noticeably fuller, thicker hair growth
+
+12. gallery-reception.jpg
+    Size:  800×840px  (wide + tall grid item)
+    Use:   Gallery Section — hero gallery image
+    Style: Modern luxury clinic interior: reception desk, ambient lighting,
+           plum/white/soft tones, plants, magazine rack, clean surfaces
+
+13. gallery-treatment-room.jpg
+    Size:  400×400px
+    Use:   Gallery Section
+    Style: Clean treatment/procedure room, medical recliner chair,
+           bright lighting, sterile aesthetic
+
+14. gallery-laser-equipment.jpg
+    Size:  400×400px
+    Use:   Gallery Section
+    Style: Close-up or wide shot of laser/aesthetic device/equipment
+           in clinic setting; conveys advanced technology
+
+15. gallery-consultation.jpg
+    Size:  400×400px
+    Use:   Gallery Section
+    Style: Doctor in consultation with patient across desk,
+           warm and professional setting
+
+16. gallery-skincare-products.jpg
+    Size:  800×400px  (wide grid item)
+    Use:   Gallery Section
+    Style: Neatly arranged medical-grade skincare products,
+           white/neutral background, elegant product photography
+
+==============================================================
+OPTIMISATION RECOMMENDATIONS
+==============================================================
+
+• Save all images as progressive JPEG at 80-85% quality.
+• Before/After pairs must be shot under identical lighting,
+  angle, and distance for credibility.
+• Use tools like Squoosh (squoosh.app) or TinyPNG to compress.
+• Ensure faces have signed photo-release consent.
+• Add descriptive alt text (already included in code).
+• For Retina/HiDPI screens, provide 2× resolution variants:
+  doctor-main@2x.jpg etc. and use srcset attributes.
+• Recommended maximum file sizes:
+    - Hero doctor image:  ≤ 200 KB
+    - Gallery images:     ≤ 150 KB each
+    - Before/After:       ≤ 120 KB each
+    - Background/OG:      ≤ 250 KB
+
+==============================================================
+END OF IMAGE REQUIREMENTS
+==============================================================
+-->
